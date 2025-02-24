@@ -2,8 +2,9 @@ package util
 
 import (
 	"fmt"
-	"github.com/Shopify/go-lua"
 	"io"
+
+	"github.com/epikur-io/go-lua"
 )
 
 // DumpFrame writes the currently visible frames of the Lua stack in a
