@@ -2,7 +2,8 @@ package sha256
 
 import (
 	"crypto/sha256"
-	"github.com/Shopify/go-lua"
+
+	"github.com/epikur-io/go-lua"
 )
 
 func Open(l *lua.State) {

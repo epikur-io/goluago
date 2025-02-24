@@ -1,12 +1,13 @@
 package aes
 
 import (
+	"bytes"
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/rand"
-	"bytes"
-	"github.com/Shopify/go-lua"
 	"io"
+
+	"github.com/epikur-io/go-lua"
 )
 
 func Open(l *lua.State) {
@@ -35,7 +36,7 @@ func encryptCBC(l *lua.State) int {
 
 	content := PKCS5Padding(plaintext, aes.BlockSize, len(plaintext))
 
-	ciphertext := make([]byte, aes.BlockSize + len(content))
+	ciphertext := make([]byte, aes.BlockSize+len(content))
 	iv := ciphertext[:aes.BlockSize]
 	if _, err := io.ReadFull(rand.Reader, iv); err != nil {
 		lua.Errorf(l, err.Error())
@@ -66,15 +67,14 @@ func decryptCBC(l *lua.State) int {
 	decrypter := cipher.NewCBCDecrypter(block, iv)
 	decrypter.CryptBlocks(ciphertext, ciphertext)
 
-
 	l.PushString(string(PKCS5UnPadding(ciphertext)))
 
 	return 1
 }
 
 func PKCS5Padding(ciphertext []byte, blockSize int, after int) []byte {
-	block := (blockSize - len(ciphertext) % blockSize)
-	padding := bytes.Repeat([]byte{ byte(block) }, block)
+	block := (blockSize - len(ciphertext)%blockSize)
+	padding := bytes.Repeat([]byte{byte(block)}, block)
 	return append(ciphertext, padding...)
 }
 

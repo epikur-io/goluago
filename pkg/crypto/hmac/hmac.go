@@ -6,7 +6,7 @@ import (
 	"crypto/sha256"
 	"hash"
 
-	"github.com/Shopify/go-lua"
+	"github.com/epikur-io/go-lua"
 )
 
 func Open(l *lua.State) {

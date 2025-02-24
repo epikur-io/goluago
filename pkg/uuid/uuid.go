@@ -1,8 +1,8 @@
 package uuid
 
 import (
+	"github.com/epikur-io/go-lua"
 	"github.com/pborman/uuid"
-	"github.com/Shopify/go-lua"
 )
 
 var library = []lua.RegistryFunction{

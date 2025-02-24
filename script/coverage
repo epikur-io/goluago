@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
-PROJECT=github.com/Shopify/goluago
+PROJECT=github.com/epikur-io/goluago
 go test -covermode=count -coverprofile=count.out $PROJECT/tst -coverpkg=$PROJECT/...
 go tool cover -html=count.out

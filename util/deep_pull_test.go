@@ -6,11 +6,11 @@ import (
 	"reflect"
 	"testing"
 
-	luatesting "github.com/Shopify/goluago/pkg/testing"
+	luatesting "github.com/epikur-io/goluago/pkg/testing"
 
-	"github.com/Shopify/go-lua"
-	"github.com/Shopify/goluago/util"
 	"github.com/bradfitz/iter"
+	"github.com/epikur-io/go-lua"
+	"github.com/epikur-io/goluago/util"
 )
 
 ////////////////////////

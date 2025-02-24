@@ -3,7 +3,7 @@ package time
 import (
 	"time"
 
-	"github.com/Shopify/go-lua"
+	"github.com/epikur-io/go-lua"
 )
 
 const ISO8601_FORMAT = `2006-01-02T15:04:05-07:00`
@@ -74,7 +74,7 @@ func add(l *lua.State) int {
 	hour := lua.OptInteger(l, -3, 0)
 	l.Pop(3)
 
-	inc := startUnix.Add(time.Hour * time.Duration(hour) + time.Minute * time.Duration(minute) + time.Second * time.Duration(second))
+	inc := startUnix.Add(time.Hour*time.Duration(hour) + time.Minute*time.Duration(minute) + time.Second*time.Duration(second))
 	l.PushNumber(float64(inc.UnixNano()))
 	return 1
 }

@@ -4,7 +4,7 @@ import (
 	"crypto/md5"
 	"fmt"
 
-	"github.com/Shopify/go-lua"
+	"github.com/epikur-io/go-lua"
 )
 
 func Open(l *lua.State) {

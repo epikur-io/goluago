@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/Shopify/go-lua"
+	"github.com/epikur-io/go-lua"
 )
 
 // DeepPush will put any basic Go type on the lua stack. If the value
@@ -13,20 +13,20 @@ import (
 //
 // Supported types are:
 //
-//    | Go                       | Lua
-//    |-------------------------------------------------------------------------
-//    | nil                      | nil
-//    | bool                     | bool
-//    | string                   | string
-//    | any int                  | number (float64)
-//    | any float                | number (float64)
-//    | any complex              | number (real value as float64)
-//    |                          |
-//    | map[t]t                  | table, key and val `t` recursively
-//    |                          | resolved
-//    |                          |
-//    | []t                      | table with array properties, with `t`
-//    |                          | values recursively resolved
+//	| Go                       | Lua
+//	|-------------------------------------------------------------------------
+//	| nil                      | nil
+//	| bool                     | bool
+//	| string                   | string
+//	| any int                  | number (float64)
+//	| any float                | number (float64)
+//	| any complex              | number (real value as float64)
+//	|                          |
+//	| map[t]t                  | table, key and val `t` recursively
+//	|                          | resolved
+//	|                          |
+//	| []t                      | table with array properties, with `t`
+//	|                          | values recursively resolved
 func DeepPush(l *lua.State, v interface{}) int {
 	forwardOnType(l, v)
 	return 1

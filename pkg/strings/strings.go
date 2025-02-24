@@ -1,9 +1,10 @@
 package strings
 
 import (
-	"github.com/Shopify/go-lua"
-	"github.com/Shopify/goluago/util"
 	"strings"
+
+	"github.com/epikur-io/go-lua"
+	"github.com/epikur-io/goluago/util"
 )
 
 func Open(l *lua.State) {

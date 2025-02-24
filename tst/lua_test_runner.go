@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/Shopify/go-lua"
+	"github.com/epikur-io/go-lua"
 
-	luatesting "github.com/Shopify/goluago/pkg/testing"
+	luatesting "github.com/epikur-io/goluago/pkg/testing"
 )
 
 func RunLuaTests(t *testing.T, libraryCallback func(l *lua.State), filename string) {

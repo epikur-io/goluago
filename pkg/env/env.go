@@ -1,13 +1,15 @@
 package env
 
 import (
-	"github.com/Shopify/go-lua"
 	"os"
+
+	"github.com/epikur-io/go-lua"
 )
 
 // Open makes part of the Go os env functions available to Lua code executing
 // in the given lua.State, provided that it requires it:
-//    local url = require("goluago/env")
+//
+//	local url = require("goluago/env")
 func Open(l *lua.State) {
 	envOpen := func(l *lua.State) int {
 		lua.NewLibrary(l, fmtLibrary)

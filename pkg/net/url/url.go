@@ -1,13 +1,15 @@
 package url
 
 import (
-	"github.com/Shopify/go-lua"
 	"net/url"
+
+	"github.com/epikur-io/go-lua"
 )
 
 // Open makes part of the Go net/url package available to Lua code executing
 // in the given lua.State, provided that it requires it:
-//    local url = require("goluago/net/url")
+//
+//	local url = require("goluago/net/url")
 func Open(l *lua.State) {
 	urlOpen := func(l *lua.State) int {
 		lua.NewLibrary(l, urlLibrary)
